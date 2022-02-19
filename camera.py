@@ -14,13 +14,13 @@ while cap == "":
 
 print("Show letter to camera")
 ret, frame = cap.read()
-cv2.imshow('preview',frame)
+cv2.imshow('letter',frame)
 
 cv2.waitKey(0)
 
 #Saves the image to a file
 
-cv2.imwrite("pic.png", frame)
+cv2.imwrite("letter.png", frame)
 
 cap.release()
 
