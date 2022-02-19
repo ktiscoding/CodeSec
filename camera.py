@@ -2,7 +2,7 @@ import cv2
 
 cap = ""
 
-#what happens below
+#Checks that it can access the camera
 
 while cap == "":
     cap = cv2.VideoCapture(0)
@@ -10,7 +10,7 @@ while cap == "":
         print('Could not open video device')
         cap = ""
         
-#what happens below
+#Takes a picture from the webcam and shows it to the user until they press a key
 
 print("Show letter to camera")
 ret, frame = cap.read()
@@ -18,8 +18,7 @@ cv2.imshow('preview',frame)
 
 cv2.waitKey(0)
 
-#what happens below
-    
+#Saves the image to a file
 
 cv2.imwrite("pic.png", frame)
 
