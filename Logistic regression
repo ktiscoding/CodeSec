@@ -16,33 +16,37 @@ Dataset=pandas.read_csv('Capital_A.csv')
 print(Dataset)
 Dataset.describe().transpose()
 
-# target_column = Dataset['y'] 
-# predictors = list(set(list(Dataset.columns))-set(target_column))
-# Dataset.describe().transpose()
+target_column = Dataset['y'] 
+predictors = list(set(list(Dataset.columns))-set(target_column))
+Dataset.describe().transpose()
 
-# print(target_column)
-# print(predictors)
+print(target_column)
+print(predictors)
 
-# target_column=[]
-# predictors=[]
+target_column=[]
+predictors=[]
 
-# with open("Capital_A.csv", 'r') as f:
-#     reader = csv.DictReader(f)
-#     for row in reader:
-#         target_column.append(row.get('y'))
-#         predictors.append(row.get('x:image'))
-# predictors = np.reshape(predictors, (-1, 1))
+with open("Capital_A.csv", 'r') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        target_column.append(row.get('y'))
+        predictors.append(row.get('x:image'))
+predictors = np.reshape(predictors, (-1, 1))
 
 
 x=Dataset[]
 
 x_training, x_testing, y_training, y_testing = train_test_split(predictors,target_column, test_size=0.25, random_state=0)
 
-x_training.shape()
-x_testing.shape()
+scaler = preprocessing.StandardScaler().fit(X_train) #temp
+X_train_scaled = scaler.transform(X_training) #temp
+
 
 # all parameters not specified are set to their defaults
 logisticRegr = LogisticRegression()
 
-logisticRegr.fit(x_training, y_training)
+logisticRegr.fit(x_train_scaled, y_training)
+acc = logisticRegr.score(X_train_scaled, y_train)
 logisticRegr.predict(x_testing[0].reshape(1,-1))
+
+print("The Accuracy for Training Set is {}".format(train_acc*100))
