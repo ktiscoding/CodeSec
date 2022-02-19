@@ -10,13 +10,12 @@ while cap == "":
         print('Could not open video device')
         cap = ""
         
-#Takes a picture from the webcam and shows it to the user until they press a key
+#Takes a picture from the webcam
 
-print("Show letter to camera")
 ret, frame = cap.read()
 cv2.imshow('letter',frame)
 
-cv2.waitKey(0)
+#cv2.waitKey(0)
 
 #Saves the image to a file
 
