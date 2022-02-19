@@ -1,1 +1,48 @@
+import pandas
+import numpy as np 
+import matplotlib.pyplot as plt
+import sklearn
+from sklearn.linear_model import SGDClassifier
+from sklearn.neural_network import MLPRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import classification_report,confusion_matrix
+from math import sqrt
+from sklearn.metrics import r2_score
+from sklearn.linear_model import LogisticRegression
+import csv
 
+Dataset=pandas.read_csv('Capital_A.csv')
+print(Dataset)
+Dataset.describe().transpose()
+
+# target_column = Dataset['y'] 
+# predictors = list(set(list(Dataset.columns))-set(target_column))
+# Dataset.describe().transpose()
+
+# print(target_column)
+# print(predictors)
+
+# target_column=[]
+# predictors=[]
+
+# with open("Capital_A.csv", 'r') as f:
+#     reader = csv.DictReader(f)
+#     for row in reader:
+#         target_column.append(row.get('y'))
+#         predictors.append(row.get('x:image'))
+# predictors = np.reshape(predictors, (-1, 1))
+
+
+x=Dataset[]
+
+x_training, x_testing, y_training, y_testing = train_test_split(predictors,target_column, test_size=0.25, random_state=0)
+
+x_training.shape()
+x_testing.shape()
+
+# all parameters not specified are set to their defaults
+logisticRegr = LogisticRegression()
+
+logisticRegr.fit(x_training, y_training)
+logisticRegr.predict(x_testing[0].reshape(1,-1))
