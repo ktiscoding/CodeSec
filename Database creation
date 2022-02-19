@@ -1,17 +1,17 @@
-#importing the libraries needed
+#importing the libraries
 import os 
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 ImagePath='C:\\Users\\alexi\\Desktop\\CodeSec\\Images\\'
 TrainingDataset=[]
-#iterating through the folder represented by the ImagePath to append all the file 
 for Image in os.listdir(ImagePath):
     Picture = cv2.imread(os.path.join(ImagePath,Image))
     Picture = cv2.cvtColor(Picture,cv2.COLOR_BGR2RGB)
     Picture = cv2.resize(Picture,(80,80))
     TrainingDataset.append([Picture])
-np.save(os.path.join(ImagePath,'features'),np.array(TrainingDataset))
-Save = np.load(os.path.join(ImagePath,'features.npy'))
+TrainingPath='C:\\Users\\alexi\\Desktop\\CodeSec\\'
+np.save(os.path.join(TrainingPath,'features'),np.array(TrainingDataset))
+Save = np.load(os.path.join(TrainingPath,'features.npy'))
 plt.imshow(Save[0].reshape(80,80,3))
 plt.imshow(np.array(TrainingDataset[0]).reshape(80,80,3))
