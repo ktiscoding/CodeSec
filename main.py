@@ -98,5 +98,4 @@ class CodesecApp(App):
 
 
 # This calls the App creating function
-if name == 'main':
-    CodesecApp().run()
+CodesecApp().run()
