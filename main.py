@@ -21,25 +21,17 @@ from kivy.uix.label import Label
 class HomeScreen(Screen):
     pass
 
-
+# Class which opens the level select screen
 class LevelSelect(Screen):
     pass
 
-
+# Class which opens the level one screen
 class LevelOne(Screen):
     pass
 
-
+# Class which opens the image screen
 class LevelOneImage(Screen):
     pass
-
-
-class Success(Screen):
-    pass
-
-class Failure(Screen):
-    pass
-
 
 # Class which builds the app
 class CodesecApp(App):
@@ -53,6 +45,8 @@ class CodesecApp(App):
         sm.add_widget(Failure(name="Failure"))
         return sm
 
+    # Function to take picture from webcam
+    
     def camera(self):
         cap = ""
 
@@ -76,6 +70,8 @@ class CodesecApp(App):
         cap.release()
 
         cv2.destroyAllWindows()
+        
+    # Function to access whether the letter pictured is correct or not. 
 
     def machineLearning(self):
         # Load the model
