@@ -1,3 +1,5 @@
+#Forming the homescreen
+
 <HomeScreen>:
     name: "HomeScreen"
     canvas:
@@ -40,6 +42,7 @@
             on_release:
                 root.manager.current = "LevelSelect"
 
+#Forming a level select page with one button available to click
 
 <LevelSelect>:
     name: "LevelSelect"
@@ -118,6 +121,7 @@
             font_size: 30
             size_hint: 1, 0.075
 
+#Displaying the A to be written and a button to be pressed to take a picture
 
 <LevelOne>:
     name: "LevelOne"
@@ -159,6 +163,7 @@
                 app.camera()
                 root.manager.current = "LevelOneImage"
 
+#When the take a picture button is pressed the picture appears with a 'retake' or 'check' button. If the check button is pressed, the machine learning function is called.
 
 <LevelOneImage>:
     name: "LevelOneImage"
@@ -206,6 +211,8 @@
                 on_press: Check.background_color = 0.422, 0.891, 0.969, 0.85
                 on_release:
                     app.machineLearning()
+
+#If the 'retake' button is pressed the app is switchd to an identical screen with an updated image (this function works on later versions of kivy).
 
 <LevelOneImage2>:
     name: "LevelOneImage2"
