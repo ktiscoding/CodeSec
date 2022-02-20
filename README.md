@@ -13,7 +13,7 @@ Earlier code which was used to arrive at the final program includes:
 
 Code which helps run main.py:
 
-- app.kv
+- CodeSec.kv
 - keras_model.h5
 
 
