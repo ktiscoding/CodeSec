@@ -86,8 +86,14 @@ class CodesecApp(App):
         print(prediction)
         if prediction[0][0]>prediction[0][1]:
             letter="A"
+            popup = Popup(title='Result',
+            content=Label(text='Correct!'),
+            size_hint=(None, None), size=(400, 400))
         else:
             letter="not A"
+            popup = Popup(title='Result',
+            content=Label(text='Wrong!'),
+            size_hint=(None, None), size=(400, 400))
         print(letter)
 
 
