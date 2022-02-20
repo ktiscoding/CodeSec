@@ -8,13 +8,13 @@ Earlier code which was used to arrive at the final program includes:
 
 - DatabaseCreation.py
 - LogisticRegression.py
-- camera.py
-- camera2.py
+- all the ATTEMPT files
 
 Code which helps run main.py:
 
 - CodeSec.kv
 - keras_model.h5
+- the image files
 
 
 The file MLmodel.py is a working machine learning algorithm we made, but is not used in the code.
