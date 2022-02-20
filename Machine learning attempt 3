@@ -1,0 +1,73 @@
+import os
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from IPython.display import display
+
+import pandas as pd
+import numpy as np
+
+from PIL import Image
+
+from skimage.feature import hog
+from skimage.color import rgb2gray
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+
+from sklearn.metrics import roc_curve, auc, accuracy_score
+
+labels = pd.read_csv("test.csv", index_col=0)
+
+def get_image(row_id, root="C:\Users\alexi\Desktop\CodeSec\train\TrainingImages"):
+    """
+    Converts an image number into the file path where the image is located, 
+    opens the image, and returns the image as a numpy array.
+    """
+    filename = "{}.png".format(row_id)
+    file_path = os.path.join(root, filename)
+    img = Image.open(file_path)
+    return np.array(img)
+
+def create_features(img):
+    color_features = img.flatten()
+    # convert image to greyscale
+    grey_image = rgb2gray(img)
+    # get HOG features from greyscale image
+    hog_features = hog(grey_image, block_norm='L2-Hys', pixels_per_cell=(16, 16))
+    # combine color and hog features into a single array
+    flat_features = np.hstack([color_features, hog_features])
+    return flat_features
+
+
+# A_row = labels[labels.y == 1.0].index[5]
+# A = get_image(A_row)
+# A_gray = rgb2gray(A)
+# hog_features, hog_image = hog(A_gray,
+#                               visualize=True,
+#                               block_norm='L2-Hys',
+#                               pixels_per_cell=(16, 16))
+# plt.imshow(hog_image, cmap=mpl.cm.gray)
+# A_Features = create_features(A)
+# print("A_Features shape is: ",A_Features.shape)
+
+def create_feature_matrix(label_dataframe):
+    features_list = []
+    for img_id in label_dataframe.index:
+        img = get_image(img_id,root="C:\Users\alexi\Desktop\CodeSec\train\TrainingImages")
+        image_features =create_features(img)
+        features_list.append(image_features)
+    feature_matrix = np.array(features_list)
+    return feature_matrix
+
+feature_matrix = create_feature_matrix(labels)
+for i in feature_matrix:
+    print(len(i))
+
+print('Feature matrix shape is: ', feature_matrix.shape)
+
+
+
+
+
+
