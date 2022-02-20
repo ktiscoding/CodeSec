@@ -27,3 +27,5 @@ The code requires the following Python modules to be downloaded in order to run:
 - Kivy
 - Keras
 - PIL
+- Pandas
+- Scikit
