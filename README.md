@@ -18,3 +18,10 @@ Code which helps run main.py:
 
 
 The file MLmodel.py is a working machine learning algorithm we made, but is not used in the code.
+
+The code requires the following Python modules to be downloaded in order to run:
+
+- Open CV
+- Tensorflow
+- Numpy
+- Kivy
