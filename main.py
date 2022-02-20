@@ -41,8 +41,6 @@ class CodesecApp(App):
         sm.add_widget(LevelSelect(name="LevelSelect"))
         sm.add_widget(LevelOne(name="LevelOne"))
         sm.add_widget(LevelOneImage(name="LevelOneImage"))
-        sm.add_widget(Success(name="Success"))
-        sm.add_widget(Failure(name="Failure"))
         return sm
 
     # Function to take picture from webcam
