@@ -13,9 +13,6 @@ while cap == "":
 #Takes a picture from the webcam
 
 ret, frame = cap.read()
-cv2.imshow('letter',frame)
-
-#cv2.waitKey(0)
 
 #Saves the image to a file
 
