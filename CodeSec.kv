@@ -1,4 +1,5 @@
 <HomeScreen>:
+#This creates the turquoise background
     name: "HomeScreen"
     canvas:
         Color:
@@ -7,12 +8,15 @@
             pos: 0, 0
             size: self.width, self.height
 
+#This creates a layer format which allows us to put the widgets on top of one another
     BoxLayout:
         pos:0,0
         size: root.width, root.height
         orientation: "vertical"
         spacing: 10
         padding: 25
+        
+#This creates the title at the top of the screen
         Label:
             color: (0.168, 0.43, 0.957, 0.55)
             text: "Hand Right"
@@ -21,11 +25,13 @@
             center_x: root.width/2
             size_hint: 1, 0.2
 
+#This produces the image of the main character and puts it in the middle of the screen
         Image:
             source: "hero_1.png"
             center_x: root.width/2
             center_y: root.height/2
 
+#This creates the button at the bottom of the screen which allows you to move onto the level select screen and changes colour when you hold it
         Button:
             id: start
             text: "Start"
@@ -42,6 +48,7 @@
 
 
 <LevelSelect>:
+#This creates the turquoise background
     name: "LevelSelect"
     canvas:
         Color:
@@ -49,12 +56,16 @@
         Rectangle:
             pos: 0, 0
             size: self.width, self.height
+            
+ #This creates a layer format which allows us to put the widgets on top of one another   
     BoxLayout:
         pos:0,0
         size: root.width, root.height
         orientation: "vertical"
         spacing: 10
         padding: 10
+        
+#This creates the title at the top of the screen which says Level Select
         Label:
             color: (0.168, 0.43, 0.957, 0.55)
             text: "Level Select"
@@ -63,22 +74,26 @@
             center_x: root.width/2
             size_hint: 1, 0.15
 
-
+#This creates a grid layout of all the levels which you can use 
         GridLayout:
             spacing: 50
             padding: 50
             cols: 3
             rows: 4
+            
+#This button takes you to the first level screen where you are told how to draw the letter A
             Button:
                 id: one
                 text: "1"
-                font_size: 25
+                font_size: 50
                 background_normal: ''
                 background_color: 0.75, 0.945, 0.43, 0.85
                 background_down: ''
                 on_press: one.background_color = 0.422, 0.891, 0.969, 0.85
                 on_release:
                     root.manager.current = "LevelOne"
+                    
+#Here are all the buttons that currentl have no functionality but will have functionality in future updates of this program
             Button:
                 text: "2"
                 font_size: 25
@@ -112,7 +127,8 @@
             Button:
                 text: "12"
                 font_size: 25
-
+                
+#This a currently unusable button which would allow you to access more levels
         Button:
             text: "Next Levels"
             font_size: 30
@@ -120,6 +136,7 @@
 
 
 <LevelOne>:
+#This creates the turquoise background
     name: "LevelOne"
     canvas:
         Color:
@@ -128,6 +145,7 @@
             pos: 0, 0
             size: self.width, self.height
 
+#This creates a layer format which allows us to put the widgets on top of one another
     BoxLayout:
         pos:0,0
         size: root.width, root.height
@@ -135,6 +153,7 @@
         spacing: 10
         padding: 10
 
+#This creates a little title at the top which says Try writing
         Label:
             color: (0.168, 0.43, 0.957, 0.55)
             text: "Try writing"
@@ -143,15 +162,18 @@
             center_x: root.width/2
             size_hint: 1, 0.15
 
+#This shows the image of how to write an A
         Image:
             source: "Aa.png"
             center_x: root.width/2
             center_y: root.height/2
             size_hint:1, 0.35
 
+#This button takes the picture of the letter and moves you onto the screen which allows you to see the image 
         Button:
             id: A
             text: "press here to take picture"
+            font_size: 20
             background_normal: ''
             background_color: 0.75, 0.945, 0.43, 0.85
             on_press: A.background_color = 0.422, 0.891, 0.969, 0.85
@@ -161,6 +183,7 @@
 
 
 <LevelOneImage>:
+#This creates the turquoise background
     name: "LevelOneImage"
     canvas:
         Color:
@@ -168,6 +191,8 @@
         Rectangle:
             pos: 0, 0
             size: self.width, self.height
+            
+#This creates a layer format which allows us to put the widgets on top of one another   
     BoxLayout:
         pos:0,0
         size: root.width, root.height
@@ -175,12 +200,14 @@
         spacing: 10
         padding: 10
 
+#This adds the image of the picture taken of A to the top of the screen
         Image:
             source: "letter.png"
             center_x: root.width/2
             center_y: root.height/2
             size_hint: 1, 0.75
 
+#This creates a layer format which allows us to put the widgets in the bottom half of the screen side by side horizontally
         BoxLayout:
             pos:0,0
             size: root.width, root.height
@@ -188,6 +215,7 @@
             spacing: 10
             padding: 10
 
+#Here the button calls the screen again so the same screen is created with the new image
             Button:
                 id: Retake
                 text: "Retake"
@@ -198,6 +226,7 @@
                     app.camera()
                     root.manager.current = "LevelOneImage"
 
+# Here the button takes the image and then calls te function which checks whether the written letter is an A
             Button:
                 id: Check
                 text: "Check"
